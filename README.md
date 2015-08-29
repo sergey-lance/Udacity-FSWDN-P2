@@ -15,7 +15,13 @@ To run the application you need a python interpreter, python-psycopg2 library an
 
 
 To create the tournament database you should manually run:
-<code>
+```
 createdb tournament
 psql databasename < tournament.sql
-</code>
+```
+
+tournament.py -- a swiss-system tournament implementation API;
+tournament_test.py -- an example of how to use this API.
+
+# Copyright and license
+You are free to use this code as an example, but do not forget about Udacity Honor Code.
