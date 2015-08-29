@@ -9,3 +9,13 @@ The game tournament will use the Swiss system for pairing up players in each rou
 * If the number of players is not even, a "bye" fantom player can be created.
 * When two players have the same number of wins, they are ranked according to OMW (Opponent Match Wins), the total number of wins by players they have played against.
 * A decorator function was added to get rid of duplications in the code.
+
+# Running
+To run the application you need a python interpreter, python-psycopg2 library and a Postgres RDB installed. It guaranteed to work with python v2.7 and PostgreSQL v9.3.9.
+
+
+To create the tournament database you should manually run:
+<code>
+createdb tournament
+psql databasename < tournament.sql
+</code>
