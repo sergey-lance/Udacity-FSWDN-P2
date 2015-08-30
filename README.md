@@ -18,13 +18,19 @@ The game tournament will use the Swiss system for pairing up players in each rou
 ## Running
 To run the application you need a python interpreter, python-psycopg2 library and a Postgres RDB installed. It guaranteed to work with python v2.7 and PostgreSQL v9.3.
 
+How to run the application:
 
-To create the tournament database you should manually run:
-```
-createdb tournament
-psql databasename < tournament.sql
-```
+1. Create the tournament database if it doesn't exist.
 
+        createdb tournament
+        
+2. Create required tables:
+
+        psql tournament < tournament.sql 
+        
+3. Run the tournament test script to ensure that it functions properly.
+
+        python tournament_test.py
 
 ## Copyright and license
 You are free to use this code as an example, but do not forget about Udacity Honor Code.
