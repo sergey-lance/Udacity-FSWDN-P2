@@ -11,16 +11,17 @@ DROP TABLE matches CASCADE;
 
 CREATE TABLE players ( id SERIAL PRIMARY KEY, name VARCHAR(128) NOT NULL UNIQUE );
 
-CREATE TABLE matches ( player int REFERENCES players(id) ON
-                      DELETE CASCADE, rival int REFERENCES players(id) ON
-                      DELETE CASCADE, score smallint, PRIMARY KEY (player, rival) );
+CREATE TABLE matches (
+      player INT REFERENCES players(id) ON DELETE CASCADE,
+      rival INT REFERENCES players(id) ON DELETE CASCADE,
+      score SMALLINT, PRIMARY KEY (player, rival) );
 
 
 CREATE VIEW scoretable AS
 SELECT players.id,
        players.name,
        SUM(matches.score) AS total,
-       sum(CASE WHEN matches.score != 0 THEN 1 END) AS mw
+       SUM(CASE WHEN matches.score != 0 THEN 1 END) AS mw
 FROM players
 LEFT OUTER JOIN matches ON players.id=matches.player
 GROUP BY players.id
